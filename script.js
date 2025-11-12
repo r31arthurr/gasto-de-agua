@@ -1,12 +1,12 @@
 const alimentos = [
   { nome: "Café (Grão Torrado)", gasto: 18900, verde: 70, azul: 20, cinza: 10, img: "https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg" },
-  { nome: "Chocolate (Massa)", gasto: 17196, verde: 72, azul: 20, cinza: 8, img: "https://www.pexels.com/photo/close-up-photo-of-chocolate-spread-7213880/" },
+  { nome: "Chocolate (Massa)", gasto: 17196, verde: 72, azul: 20, cinza: 8, img: "https://newenglandcooks.com/assets/image-cache/11.Chocolate%20Paste_opt.b6ed3a83.e4ae9db8.jpg" },
   { nome: "Chá", gasto: 8700, verde: 85, azul: 10, cinza: 5, img: "https://marjan.com.br/wp-content/uploads/2022/10/tipos-de-cha.jpeg" },
-  { nome: "Carne Bovina", gasto: 15400, verde: 94, azul: 4, cinza: 2, img: "https://upload.wikimedia.org/wikipedia/commons/3/32/Raw_beef_steak.jpg" },
-  { nome: "Carne de Cordeiro/Ovelha", gasto: 10400, verde: 88, azul: 8, cinza: 4, img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Lamb_ribs_raw.jpg" },
-  { nome: "Carne Suína", gasto: 6000, verde: 85, azul: 10, cinza: 5, img: "https://upload.wikimedia.org/wikipedia/commons/d/df/Pork_meat.jpg" },
-  { nome: "Manteiga", gasto: 5550, verde: 86, azul: 8, cinza: 6, img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Butter_in_dish.jpg" },
-  { nome: "Frango", gasto: 4325, verde: 80, azul: 15, cinza: 5, img: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Raw_chicken_breast.png" },
+  { nome: "Carne Bovina", gasto: 15400, verde: 94, azul: 4, cinza: 2, img: "https://imagens-cdn.canalrural.com.br/2018/11/meat-3139641_1920.jpg" },
+  { nome: "Carne de Cordeiro/Ovelha", gasto: 10400, verde: 88, azul: 8, cinza: 4, img: "https://i.pinimg.com/736x/91/fa/7b/91fa7b0ed45ba9bd60add077ea0eb8ef.jpg" },
+  { nome: "Carne Suína", gasto: 6000, verde: 85, azul: 10, cinza: 5, img: "https://d2r9epyceweg5n.cloudfront.net/stores/001/007/019/rte/cortes-ideais-carne-suina-para-nao-sair-da-dieta.jpg" },
+  { nome: "Manteiga", gasto: 5550, verde: 86, azul: 8, cinza: 6, img: "https://tse2.mm.bing.net/th/id/OIP.T6JcR7sXEnZSwT9dToQTkwHaFK?rs=1&pid=ImgDetMain&o=7&rm=3" },
+  { nome: "Frango", gasto: 4325, verde: 80, azul: 15, cinza: 5, img: "https://ibassets.com.br/ib.item.image.big/b-34e8125515a945829354f59a608825b1.png" },
   { nome: "Nozes", gasto: 9060, verde: 76, azul: 18, cinza: 6, img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Walnuts_in_shell_and_out.jpg" },
   { nome: "Feijão Seco", gasto: 5600, verde: 84, azul: 10, cinza: 6, img: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Kidney_beans.jpg" },
   { nome: "Ovos", gasto: 3265, verde: 75, azul: 20, cinza: 5, img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Chicken_eggs.jpg" },
@@ -79,4 +79,5 @@ function atualizar(alimento) {
 
   descricaoEl.textContent = `${alimento.nome} consome cerca de ${alimento.gasto} litros de água para produzir 1 kg, sendo distribuído em ${alimento.verde}% de água verde, ${alimento.azul}% azul e ${alimento.cinza}% cinza.`;
 }
+
 
