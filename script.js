@@ -1,7 +1,7 @@
 const alimentos = [
-  { nome: "Café (Grão Torrado)", gasto: 18900, verde: 70, azul: 20, cinza: 10, img: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" },
-  { nome: "Chocolate (Massa)", gasto: 17196, verde: 72, azul: 20, cinza: 8, img: "https://upload.wikimedia.org/wikipedia/commons/7/70/Chocolate_%28blue_background%29.jpg" },
-  { nome: "Chá", gasto: 8700, verde: 85, azul: 10, cinza: 5, img: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cup_of_tea_in_a_white_cup.jpg" },
+  { nome: "Café (Grão Torrado)", gasto: 18900, verde: 70, azul: 20, cinza: 10, img: "https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg" },
+  { nome: "Chocolate (Massa)", gasto: 17196, verde: 72, azul: 20, cinza: 8, img: "https://www.pexels.com/photo/close-up-photo-of-chocolate-spread-7213880/" },
+  { nome: "Chá", gasto: 8700, verde: 85, azul: 10, cinza: 5, img: "https://marjan.com.br/wp-content/uploads/2022/10/tipos-de-cha.jpeg" },
   { nome: "Carne Bovina", gasto: 15400, verde: 94, azul: 4, cinza: 2, img: "https://upload.wikimedia.org/wikipedia/commons/3/32/Raw_beef_steak.jpg" },
   { nome: "Carne de Cordeiro/Ovelha", gasto: 10400, verde: 88, azul: 8, cinza: 4, img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Lamb_ribs_raw.jpg" },
   { nome: "Carne Suína", gasto: 6000, verde: 85, azul: 10, cinza: 5, img: "https://upload.wikimedia.org/wikipedia/commons/d/df/Pork_meat.jpg" },
@@ -79,3 +79,4 @@ function atualizar(alimento) {
 
   descricaoEl.textContent = `${alimento.nome} consome cerca de ${alimento.gasto} litros de água para produzir 1 kg, sendo distribuído em ${alimento.verde}% de água verde, ${alimento.azul}% azul e ${alimento.cinza}% cinza.`;
 }
+
