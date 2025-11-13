@@ -7,9 +7,21 @@ body {
   background: #f9fafb;
   margin: 0;
   color: #222;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+:root {
+  --header-h: 48px; /* altura do header no mobile (ajustada) */
+  --footer-h: 48px; /* altura do footer no mobile (ajustada) */
+  --lista-w: 220px;
+}
+
+/* garantir que a página possa rolar no mobile */
+html, body {
+  height: auto;
+  overflow: auto;
 }
 
 header {
@@ -25,11 +37,7 @@ main {
   flex: 1;
   padding: 1em;
   gap: 1.5em;
-  overflow: hidden;
-}
-
-.lista {
-  flex: 1;
+  /* header e footer fixos no topo/embaixo; o conteúdo entre eles terá espaço visual */
   min-width: 250px;
   background: #e9f6f5;
   border-radius: 16px;
@@ -47,6 +55,8 @@ main {
 }
 
 .lista ul {
+  flex: 1;
+  overflow-y: auto;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -72,7 +82,7 @@ main {
   border-radius: 16px;
   padding: 1em 2em;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  overflow-y: auto;
+  overflow-y: hidden;
   max-height: calc(100vh - 200px);
 }
 
@@ -146,102 +156,73 @@ footer a:hover {
 }
 
 
-
 /* ======== LAYOUT MOBILE CORRIGIDO ======== */
 @media screen and (max-width: 768px) {
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+  :root { --lista-width-mobile: 220px; }
 
+  /* permitir rolagem da página inteira */
+  body { margin: 0; padding: 0; overflow: auto; }
+
+  /* header/footer estáticos (não fixos) para que fiquem no fluxo e o footer fique no final da página */
   header, footer {
-    position: fixed;
-    left: 0;
+    position: static;
     width: 100%;
     text-align: center;
     background-color: #222;
     color: white;
     font-size: 12px;
-    padding: 6px 0;
-    z-index: 10;
+    padding: 8px 0;
+    box-sizing: border-box;
   }
-
-  header { top: 0; }
-  footer { bottom: 0; }
 
   main {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 200px);
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  /* --- LISTA --- */
-  .lista {
-    position: fixed;
-    top: 20px;
-    bottom: 10px;
-    left: 0;
-    width: 10%; /* mais estreita */
-    background-color: #333;
-    color: #00796b;
-    overflow-y: auto;
-    padding: 6px;
+    gap: 8px;
+    padding: 8px;
     box-sizing: border-box;
+    height: auto; /* deixar a altura crescer com o conteúdo */
   }
 
-  /* --- CONTEÚDO --- */
-.conteudo {
-    position: fixed;
-    top: 30px;
-    bottom: 30px;
-    left: calc(var(--lista-width, 22%)); /* se quiser usar variável */
-    right: 0;
-    background-color: #f8f8f8;
-    overflow: hidden;
-    padding: 10px;
+  /* --- LISTA --- (mantém barra de rolagem interna) */
+  .lista {
+    position: relative;
+    width: var(--lista-width-mobile);
+    background-color: #e9f6f5;
+    color: #222;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+
+  .lista::-webkit-scrollbar { width: 8px; }
+  .lista::-webkit-scrollbar-thumb { background-color: #4aa3a2; border-radius: 4px; }
+
+  /* --- CONTEÚDO --- (no fluxo, sem sobreposição) */
+  .conteudo {
+    position: relative;
+    flex: 1;
+    background-color: #ffffff;
+    overflow: visible;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: stretch;
+    justify-content: flex-start;
     box-sizing: border-box;
+    border-radius: 12px;
   }
 
-  h2#nome_alimento {
-    font-size: 1rem;
-    text-align: left;
-    width: 100%;
-    margin: 4px 0 10px 0;
-  }
+  /* imagem e grafico lado a lado */
+  .grafico-container { display: flex; gap: 12px; }
+  #imagem-alimento, #imagem_alimento { width: 48%; max-width: 320px; height: auto; }
+  canvas#grafico { width: 48%; max-width: 320px; height: auto; }
 
-  canvas#grafico {
-    width: 95%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 10px;
-  }
+  .legenda { display:flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .legenda .item { padding: 0.5em 0.8em; border-radius: 8px; }
 
-  #imagem_alimento {
-    width: 95%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .itemverde,
-  .itemazul,
-  .itemcinza {
-    width: 90%;
-    max-width: 300px;
-    margin-bottom: 6px;
-  }
-
-  p#descricao {
-    font-size: 0.8rem;
-    text-align: justify;
-    width: 90%;
-    max-width: 320px;
-  }
+  p#descricao { margin-top: 8px; font-size: 0.95rem; }
 }
+/* end of mobile block */
